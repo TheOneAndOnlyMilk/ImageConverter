@@ -84,6 +84,7 @@
         <option value="avif">AVIF</option>
         <option value="vtf">VTF</option>
         <option value="tga">TGA</option>
+        <option value="jpg">JPG</option>
         <!-- Add more file formats here -->
       </select>
     </div>
@@ -141,11 +142,13 @@
               const tempLink = document.createElement('a');
               tempLink.href = url;
 
-              // Check if the selected format is VTF or TGA
+              // Check if the selected format is VTF, TGA, or JPG
               if (outputFormat === 'vtf') {
                 tempLink.setAttribute('download', `converted_image.vtf`);
               } else if (outputFormat === 'tga') {
                 tempLink.setAttribute('download', `converted_image.tga`);
+              } else if (outputFormat === 'jpg') {
+                tempLink.setAttribute('download', `converted_image.jpg`);
               } else {
                 tempLink.setAttribute('download', `converted_image.${outputFormat}`);
               }
@@ -163,4 +166,3 @@
   </script>
 </body>
 </html>
-
