@@ -82,6 +82,8 @@
         <option value="svg">SVG</option>
         <option value="tiff">TIFF</option>
         <option value="avif">AVIF</option>
+        <option value="vtf">VTF</option>
+        <option value="tga">TGA</option>
         <!-- Add more file formats here -->
       </select>
     </div>
@@ -138,7 +140,16 @@
               // Create a temporary link element to set the download attributes
               const tempLink = document.createElement('a');
               tempLink.href = url;
-              tempLink.setAttribute('download', `converted_image.${outputFormat}`);
+
+              // Check if the selected format is VTF or TGA
+              if (outputFormat === 'vtf') {
+                tempLink.setAttribute('download', `converted_image.vtf`);
+              } else if (outputFormat === 'tga') {
+                tempLink.setAttribute('download', `converted_image.tga`);
+              } else {
+                tempLink.setAttribute('download', `converted_image.${outputFormat}`);
+              }
+
               tempLink.click();
 
               URL.revokeObjectURL(url);
@@ -152,3 +163,4 @@
   </script>
 </body>
 </html>
+
